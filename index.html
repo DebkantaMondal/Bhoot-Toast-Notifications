@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bhoot Toast Notification Queue</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        padding: 2rem;
+      }
+      button {
+        padding: 0.6rem 1rem;
+        font-size: 1rem;
+        margin: 0.3rem;
+        border: none;
+        cursor: pointer;
+        border-radius: 6px;
+        color: white;
+      }
+
+      button[data-type="success"] {
+        background: #4caf50;
+      }
+      button[data-type="error"] {
+        background: #f44336;
+      }
+      button[data-type="info"] {
+        background: #2196f3;
+      }
+      button[data-type="warn"] {
+        background: #ff9800;
+      }
+
+      .toast-container {
+        position: fixed;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .toast-container.top-right {
+        top: 1rem;
+        right: 1rem;
+        align-items: flex-end;
+      }
+      .toast-container.top-left {
+        top: 1rem;
+        left: 1rem;
+        align-items: flex-start;
+      }
+      .toast-container.bottom-right {
+        bottom: 1rem;
+        right: 1rem;
+        align-items: flex-end;
+      }
+      .toast-container.bottom-left {
+        bottom: 1rem;
+        left: 1rem;
+        align-items: flex-start;
+      }
+
+      .bhoot-toast {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.8rem 1rem;
+        border-radius: 8px;
+        color: #fff;
+        font-weight: 500;
+        opacity: 0.9;
+        animation: fade-in 0.3s ease;
+      }
+
+      .bhoot-toast.success {
+        background: #4caf50;
+      }
+      .bhoot-toast.error {
+        background: #f44336;
+      }
+      .bhoot-toast.info {
+        background: #2196f3;
+      }
+      .bhoot-toast.warn {
+        background: #ff9800;
+      }
+
+      .fade-out {
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      @keyframes fade-in {
+        from {
+          transform: translateY(10px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 0.9;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Bhoot Toast Notification Queue</h1>
+
+    <label for="position">Position: </label>
+    <select id="position">
+      <option value="top-right">Top Right</option>
+      <option value="top-left">Top Left</option>
+      <option value="bottom-right">Bottom Right</option>
+      <option value="bottom-left">Bottom Left</option>
+    </select>
+
+    <div style="margin-top: 1rem">
+      <button data-type="success">Success</button>
+      <button data-type="error">Error</button>
+      <button data-type="info">Info</button>
+      <button data-type="warn">Warn</button>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
